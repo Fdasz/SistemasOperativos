@@ -10,3 +10,6 @@ Esta version tampoco funciona a traves del comando make, tambien se debe ejecuta
 Ej: imagen.jpg
 
 luego el programa pedira la cantidad de hilos que se usaran para realizar la conversion de la imagen en el cual se debe introducir un numero entero, para luego pedir el nombre con el que quedara el archivo de la foto ya transformado el cual debe seguir el mismo formato que al momento de introducir una imagen, es decir, el nombre y el formato de la imagen. Una vez se terminen de introducir los datos esta mostrara el tiempo de ejecucion en segundos y se guardara el nuevo archivo en escala de grises.
+
+# Version paralelo threads
+Seguir las mismas instrucciones que la otra version paralelo, ya que es el mismo funcionamiento solo cambia el el metodo con el que se realiza
