@@ -5,7 +5,7 @@ De momento la version secuencial no funciona a través del comando make, si se i
 Para hacer funcionar el codigo debe compilarse de manera directa utilizando el comando ./cambio en la terminal, esto ejecuta el cambio de colores a escala de grises y además muestra en terminal el tiempo de ejecucion.
 
 # Version paralelo openMP
-Esta version tampoco funciona a traves del comando make, tambien se debe ejecutar de manera directa con ./paraleloOpenMP, al ejecutar se pedira el nombre del archivo a transformar, y se debe introducir con el formato "nombre_de_archivo.formato_de_archivo"
+Esta version tampoco funciona a traves del comando make, tambien se debe ejecutar de manera directa con ./openmp, al ejecutar se pedira el nombre del archivo a transformar, y se debe introducir con el formato "nombre_de_archivo.formato_de_archivo"
 
 Ej: imagen.jpg
 
