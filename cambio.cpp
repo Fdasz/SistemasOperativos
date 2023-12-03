@@ -12,7 +12,7 @@ Mat cambiarGrises(const Mat& image) {
 	for (int y = 0; y < result.rows; ++y) {
 		for (int x = 0; x < result.cols; ++x) {
 			Vec3b color = result.at<Vec3b>(y, x);
-			float luminosity = 0.21 * color[2] + 0.72 * color[1] + 0.07 * color[0];
+			float luminosity = 0.3 * color[2] + 0.59 * color[1] + 0.11 * color[0];
 
 			color[0] = color[1] = color[2] = static_cast<uchar>(luminosity);
 			result.at<Vec3b>(y, x) = color;
