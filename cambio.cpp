@@ -5,18 +5,31 @@
 using namespace cv;
 using namespace std;
 
-Mat  convertToGrayscale(const Mat& image) {
-	Mat grayImage;
-	cvtColor(image, grayImage, COLOR_BGR2GRAY);
-	return grayImage;
+//se crea una funcion utilizando el metodo de luminosidad
+Mat cambiarGrises(const Mat& image) {
+	Mat result = image.clone();
+
+	for (int y = 0; y < result.rows; ++y) {
+		for (int x = 0; x < result.cols; ++x) {
+			Vec3b color = result.at<Vec3b>(y, x);
+			float luminosity = 0.21 * color[2] + 0.72 * color[1] + 0.07 * color[0];
+
+			color[0] = color[1] = color[2] = static_cast<uchar>(luminosity);
+			result.at<Vec3b>(y, x) = color;
+		}
+	}
+
+	return result;
 }
 
+
 int main(){
-	Mat image = imread("/home/u0_a187/Desktop/tarea2/imagenacolor.jpg", IMREAD_COLOR);
-	if (image.empty()) {
-		cout << "No se pudo cargar la imagen." << endl;
-		return -1;
-}
+	//se crea la variable para leer la imagen a cambiar
+	string imgOriginal;
+	cout << "Ingrese nombre de la imagen original: ";
+	cin >> imgOriginal;
+	//se lee la imagen
+	Mat image = imread(imgOriginal, IMREAD_COLOR);
 
 	cout << "Imagen cargada correctamente." << endl;
 	//se inicia la meidicon de tiempo
@@ -24,14 +37,14 @@ int main(){
 
 	medicion.iniciarMedicion();
 
-	Mat grayScaleImage = convertToGrayscale(image);
+	Mat resultImage = cambiarGrises(image);
 
 	medicion.finalizarMedicion();
-
+	//se muestra por consola el tiempo de ejecucion
 	cout << "Tiempo de ejecucion: " << medicion.obtenerDuracion() << "milliseconds" << std::endl;
 
-
-	imshow("Grayscale image", grayScaleImage);
+	//se muestra la imagen en gris
+	imshow("Imagen en escala de grises", resultImage);
 	waitKey(0);
 	waitKey(5000);
 	return 0;
